@@ -1,0 +1,62 @@
+[
+  {
+    "id": 1,
+    "question": "What is your return policy?",
+    "answer": "You can return unused items in their original packaging within 14 days of delivery."
+  },
+  {
+    "id": 2,
+    "question": "How do I start a return?",
+    "answer": "Go to My Account > Orders, select the order and click 'Return item'. Then print the prepaid return label and drop the parcel at any partner cargo branch."
+  },
+  {
+    "id": 3,
+    "question": "How long do refunds take?",
+    "answer": "Refunds are issued to the original payment method within 5 to 7 business days after we receive the returned item."
+  },
+  {
+    "id": 4,
+    "question": "How long does shipping take?",
+    "answer": "Standard shipping takes 3 to 5 business days. Express shipping takes 1 to 2 business days."
+  },
+  {
+    "id": 5,
+    "question": "How much does shipping cost?",
+    "answer": "Shipping is free for orders over 500 TL. For smaller orders the shipping fee is 49.90 TL."
+  },
+  {
+    "id": 6,
+    "question": "How can I track my order?",
+    "answer": "We email you a tracking number when your order ships. You can also see the status under My Account > Orders."
+  },
+  {
+    "id": 7,
+    "question": "Do you ship outside Turkey?",
+    "answer": "No. BilgiShop currently delivers only within Turkey."
+  },
+  {
+    "id": 8,
+    "question": "Which payment methods do you accept?",
+    "answer": "We accept credit and debit cards, bank transfer and BilgiShop gift cards. Credit card payments can be split into up to 6 instalments."
+  },
+  {
+    "id": 9,
+    "question": "Is my payment information safe?",
+    "answer": "Yes. All card payments use 3D Secure verification, and BilgiShop does not store your full card number."
+  },
+  {
+    "id": 10,
+    "question": "How do I reset my password?",
+    "answer": "Click 'Forgot password' on the login page and enter your email address. We will send you a reset link that is valid for 1 hour."
+  },
+  {
+    "id": 11,
+    "question": "Can I change my delivery address after ordering?",
+    "answer": "Yes, but only before the order has shipped. Go to My Account > Orders and click 'Edit address'."
+  },
+  {
+    "id": 12,
+    "question": "How do I delete my account?",
+    "answer": "Go to Settings > Account > Delete account. Your account and personal data are removed within 30 days."
+  }
+]
