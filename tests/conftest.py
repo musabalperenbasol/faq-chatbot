@@ -27,8 +27,8 @@ class FakeLLM:
 def make_bot():
     """Return a function that builds (chatbot, fake_llm) for a given fake reply."""
 
-    def _make(reply="Fake answer", error=None):
+    def _make(reply="Fake answer", error=None, faq_entries=None):
         llm = FakeLLM(reply=reply, error=error)
-        return FAQChatbot(llm), llm
+        return FAQChatbot(llm, faq_entries=faq_entries), llm
 
     return _make
