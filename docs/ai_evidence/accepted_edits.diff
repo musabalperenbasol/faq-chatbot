@@ -1,0 +1,52 @@
+diff --git a/docs/ai_evidence/raw/generated_v1.py b/tests/api/test_ai_generated_v1.py
+index 66b17b7..5b4a743 100644
+--- a/docs/ai_evidence/raw/generated_v1.py
++++ b/tests/api/test_ai_generated_v1.py
+@@ -15,7 +15,7 @@ def test_health_returns_ok_exact_json():
+     assert response.json() == {"status": "ok"}
+ 
+ 
+-# Verifies: R9
++# Robustness test, no requirement
+ def test_health_rejects_unsupported_http_method():
+     # Partition: invalid HTTP method on /health (negative test)
+     client = TestClient(app)
+@@ -24,7 +24,7 @@ def test_health_rejects_unsupported_http_method():
+     assert response.status_code == 405
+ 
+ 
+-# Verifies: R1
++# Robustness test, no requirement
+ def test_ask_rejects_unsupported_http_method(api):
+     # Partition: invalid HTTP method on /ask (negative test)
+     client, llm = api(reply="unused")
+@@ -390,7 +390,6 @@ def test_ask_emoji_preserved_in_llm_call_and_response(api):
+ def test_ask_turkish_and_emoji_at_500_char_boundary_accepted(api):
+     # Boundary: 500 multi-byte Unicode characters (UTF-8 byte length > 500, char length == 500)
+     unit = "çğışöüİ😊"  # 8 characters
+-    question = (unit * 62) + "ab"  # 496 + 4 = 500? Wait: 62*8=496, +4 -> "abcd"
+     question = (unit * 62) + "abcd"
+     assert len(question) == 500
+ 
+@@ -464,21 +463,6 @@ def test_ask_returns_503_on_missing_configuration_without_exposing_details(api):
+     assert "prod.env" not in lower_text
+ 
+ 
+-# Verifies: R8
+-def test_ask_returns_503_on_unexpected_exception_from_llm(api):
+-    # Partition: unexpected non-LLMError exception from LLM layer (negative/bug-hunting)
+-    client, _ = api(error=RuntimeError("NullPointer in /app/llm_client.py line 88"))
+-    response = client.post("/ask", json={"question": "How do I delete my account?"})
+-
+-    assert response.status_code == 503
+-    assert response.json()
+-    lower_text = response.text.lower()
+-    assert "runtimeerror" not in lower_text
+-    assert "llm_client.py" not in lower_text
+-    assert "nullpointer" not in lower_text
+-    assert "traceback" not in lower_text
+-
+-
+ # Verifies: R10
+ def test_llm_system_prompt_contains_all_faq_domains_and_restriction_instruction(api):
+     # Partition: valid request verifies system prompt includes FAQ entries & FAQ-only rule

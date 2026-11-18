@@ -4,7 +4,7 @@
 |---|---|
 | Run ID | gen_v1 |
 | Date | 18 Nov 2026 |
-| LLM used | (exact model name) |
+| LLM used | gemini-4-hydrogen |
 | Interface | Google AI Studio, new chat |
 | Settings | default |
 | Prompt file | prompts/gen_prompt_v1.md |
