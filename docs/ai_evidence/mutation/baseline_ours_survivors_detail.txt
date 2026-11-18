@@ -1,0 +1,216 @@
+=================== app.prompts.x_format_faq__mutmut_9
+# app.prompts.x_format_faq__mutmut_9: survived
+--- app/prompts.py
++++ app/prompts.py
+@@ -4,5 +4,5 @@
+     for entry in faq_entries:
+         lines.append(f"Q: {entry['question']}")
+         lines.append(f"A: {entry['answer']}")
+-        lines.append("")
++        lines.append("XXXX")
+     return "\n".join(lines).strip()
+=================== app.prompts.x_format_faq__mutmut_11
+# app.prompts.x_format_faq__mutmut_11: survived
+--- app/prompts.py
++++ app/prompts.py
+@@ -5,4 +5,4 @@
+         lines.append(f"Q: {entry['question']}")
+         lines.append(f"A: {entry['answer']}")
+         lines.append("")
+-    return "\n".join(lines).strip()
++    return "XX\nXX".join(lines).strip()
+=================== app.chatbot.x_load_faq__mutmut_2
+# app.chatbot.x_load_faq__mutmut_2: survived
+--- app/chatbot.py
++++ app/chatbot.py
+@@ -1,3 +1,3 @@
+ def load_faq(path=DEFAULT_FAQ_PATH):
+-    with open(path, encoding="utf-8") as f:
++    with open(path, encoding=None) as f:
+         return json.load(f)
+=================== app.chatbot.x_load_faq__mutmut_4
+# app.chatbot.x_load_faq__mutmut_4: survived
+--- app/chatbot.py
++++ app/chatbot.py
+@@ -1,3 +1,3 @@
+ def load_faq(path=DEFAULT_FAQ_PATH):
+-    with open(path, encoding="utf-8") as f:
++    with open(path, ) as f:
+         return json.load(f)
+=================== app.chatbot.x_load_faq__mutmut_6
+# app.chatbot.x_load_faq__mutmut_6: survived
+--- app/chatbot.py
++++ app/chatbot.py
+@@ -1,3 +1,3 @@
+ def load_faq(path=DEFAULT_FAQ_PATH):
+-    with open(path, encoding="utf-8") as f:
++    with open(path, encoding="UTF-8") as f:
+         return json.load(f)
+=================== app.chatbot.x__is_token__mutmut_3
+# app.chatbot.x__is_token__mutmut_3: survived
+--- app/chatbot.py
++++ app/chatbot.py
+@@ -1,3 +1,3 @@
+ def _is_token(reply, token):
+     """True if the LLM reply is just the special token (ignoring case and punctuation)."""
+-    return reply.strip().strip(".!\"' ").upper() == token
++    return reply.strip().strip("XX.!\"' XX").upper() == token
+=================== app.chatbot.xǁFAQChatbotǁ__init____mutmut_5
+# app.chatbot.xǁFAQChatbotǁ__init____mutmut_5: survived
+--- app/chatbot.py
++++ app/chatbot.py
+@@ -1,4 +1,4 @@
+ def __init__(self, llm_client, faq_entries=None, prompt_version="v1"):
+     self.llm_client = llm_client
+-    self.faq_entries = faq_entries if faq_entries is not None else load_faq()
++    self.faq_entries = faq_entries if (faq_entries is not None) and False else load_faq()
+     self.system_prompt = build_system_prompt(self.faq_entries, prompt_version)
+=================== app.chatbot.xǁFAQChatbotǁ__init____mutmut_8
+# app.chatbot.xǁFAQChatbotǁ__init____mutmut_8: survived
+--- app/chatbot.py
++++ app/chatbot.py
+@@ -1,4 +1,4 @@
+ def __init__(self, llm_client, faq_entries=None, prompt_version="v1"):
+     self.llm_client = llm_client
+     self.faq_entries = faq_entries if faq_entries is not None else load_faq()
+-    self.system_prompt = build_system_prompt(self.faq_entries, prompt_version)
++    self.system_prompt = None
+=================== app.chatbot.xǁFAQChatbotǁ__init____mutmut_12
+# app.chatbot.xǁFAQChatbotǁ__init____mutmut_12: survived
+--- app/chatbot.py
++++ app/chatbot.py
+@@ -1,4 +1,4 @@
+ def __init__(self, llm_client, faq_entries=None, prompt_version="v1"):
+     self.llm_client = llm_client
+     self.faq_entries = faq_entries if faq_entries is not None else load_faq()
+-    self.system_prompt = build_system_prompt(self.faq_entries, prompt_version)
++    self.system_prompt = build_system_prompt(self.faq_entries, )
+=================== app.chatbot.xǁFAQChatbotǁvalidate_question__mutmut_2
+# app.chatbot.xǁFAQChatbotǁvalidate_question__mutmut_2: survived
+--- app/chatbot.py
++++ app/chatbot.py
+@@ -1,7 +1,7 @@
+ def validate_question(self, question):
+     """Check the input rules and return the cleaned question."""
+     if not isinstance(question, str):
+-        raise InvalidQuestionError("Question must be a string.")
++        raise InvalidQuestionError(None)
+     cleaned = question.strip()
+     if not cleaned:
+         raise InvalidQuestionError("Question must not be empty.")
+=================== app.chatbot.xǁFAQChatbotǁvalidate_question__mutmut_3
+# app.chatbot.xǁFAQChatbotǁvalidate_question__mutmut_3: survived
+--- app/chatbot.py
++++ app/chatbot.py
+@@ -1,7 +1,7 @@
+ def validate_question(self, question):
+     """Check the input rules and return the cleaned question."""
+     if not isinstance(question, str):
+-        raise InvalidQuestionError("Question must be a string.")
++        raise InvalidQuestionError("XXQuestion must be a string.XX")
+     cleaned = question.strip()
+     if not cleaned:
+         raise InvalidQuestionError("Question must not be empty.")
+=================== app.chatbot.xǁFAQChatbotǁvalidate_question__mutmut_4
+# app.chatbot.xǁFAQChatbotǁvalidate_question__mutmut_4: survived
+--- app/chatbot.py
++++ app/chatbot.py
+@@ -1,7 +1,7 @@
+ def validate_question(self, question):
+     """Check the input rules and return the cleaned question."""
+     if not isinstance(question, str):
+-        raise InvalidQuestionError("Question must be a string.")
++        raise InvalidQuestionError("question must be a string.")
+     cleaned = question.strip()
+     if not cleaned:
+         raise InvalidQuestionError("Question must not be empty.")
+=================== app.chatbot.xǁFAQChatbotǁvalidate_question__mutmut_5
+# app.chatbot.xǁFAQChatbotǁvalidate_question__mutmut_5: survived
+--- app/chatbot.py
++++ app/chatbot.py
+@@ -1,7 +1,7 @@
+ def validate_question(self, question):
+     """Check the input rules and return the cleaned question."""
+     if not isinstance(question, str):
+-        raise InvalidQuestionError("Question must be a string.")
++        raise InvalidQuestionError("QUESTION MUST BE A STRING.")
+     cleaned = question.strip()
+     if not cleaned:
+         raise InvalidQuestionError("Question must not be empty.")
+=================== app.chatbot.xǁFAQChatbotǁvalidate_question__mutmut_8
+# app.chatbot.xǁFAQChatbotǁvalidate_question__mutmut_8: survived
+--- app/chatbot.py
++++ app/chatbot.py
+@@ -4,7 +4,7 @@
+         raise InvalidQuestionError("Question must be a string.")
+     cleaned = question.strip()
+     if not cleaned:
+-        raise InvalidQuestionError("Question must not be empty.")
++        raise InvalidQuestionError(None)
+     if len(cleaned) > MAX_QUESTION_LENGTH:
+         raise InvalidQuestionError(
+             f"Question must be at most {MAX_QUESTION_LENGTH} characters."
+=================== app.chatbot.xǁFAQChatbotǁvalidate_question__mutmut_9
+# app.chatbot.xǁFAQChatbotǁvalidate_question__mutmut_9: survived
+--- app/chatbot.py
++++ app/chatbot.py
+@@ -4,7 +4,7 @@
+         raise InvalidQuestionError("Question must be a string.")
+     cleaned = question.strip()
+     if not cleaned:
+-        raise InvalidQuestionError("Question must not be empty.")
++        raise InvalidQuestionError("XXQuestion must not be empty.XX")
+     if len(cleaned) > MAX_QUESTION_LENGTH:
+         raise InvalidQuestionError(
+             f"Question must be at most {MAX_QUESTION_LENGTH} characters."
+=================== app.chatbot.xǁFAQChatbotǁvalidate_question__mutmut_10
+# app.chatbot.xǁFAQChatbotǁvalidate_question__mutmut_10: survived
+--- app/chatbot.py
++++ app/chatbot.py
+@@ -4,7 +4,7 @@
+         raise InvalidQuestionError("Question must be a string.")
+     cleaned = question.strip()
+     if not cleaned:
+-        raise InvalidQuestionError("Question must not be empty.")
++        raise InvalidQuestionError("question must not be empty.")
+     if len(cleaned) > MAX_QUESTION_LENGTH:
+         raise InvalidQuestionError(
+             f"Question must be at most {MAX_QUESTION_LENGTH} characters."
+=================== app.chatbot.xǁFAQChatbotǁvalidate_question__mutmut_11
+# app.chatbot.xǁFAQChatbotǁvalidate_question__mutmut_11: survived
+--- app/chatbot.py
++++ app/chatbot.py
+@@ -4,7 +4,7 @@
+         raise InvalidQuestionError("Question must be a string.")
+     cleaned = question.strip()
+     if not cleaned:
+-        raise InvalidQuestionError("Question must not be empty.")
++        raise InvalidQuestionError("QUESTION MUST NOT BE EMPTY.")
+     if len(cleaned) > MAX_QUESTION_LENGTH:
+         raise InvalidQuestionError(
+             f"Question must be at most {MAX_QUESTION_LENGTH} characters."
+=================== app.chatbot.xǁFAQChatbotǁvalidate_question__mutmut_13
+# app.chatbot.xǁFAQChatbotǁvalidate_question__mutmut_13: survived
+--- app/chatbot.py
++++ app/chatbot.py
+@@ -7,6 +7,6 @@
+         raise InvalidQuestionError("Question must not be empty.")
+     if len(cleaned) > MAX_QUESTION_LENGTH:
+         raise InvalidQuestionError(
+-            f"Question must be at most {MAX_QUESTION_LENGTH} characters."
++            None
+         )
+     return cleaned
+=================== app.chatbot.xǁFAQChatbotǁask__mutmut_4
+# app.chatbot.xǁFAQChatbotǁask__mutmut_4: survived
+--- app/chatbot.py
++++ app/chatbot.py
+@@ -1,7 +1,7 @@
+ def ask(self, question):
+     """Answer one question. Returns {"answer": str, "status": str}."""
+     cleaned = self.validate_question(question)
+-    reply = self.llm_client.generate(self.system_prompt, cleaned)
++    reply = self.llm_client.generate(None, cleaned)
+ 
+     if _is_token(reply, OUT_OF_SCOPE_TOKEN):
+         return {"answer": OUT_OF_SCOPE_MESSAGE, "status": "out_of_scope"}

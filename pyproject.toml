@@ -1,0 +1,5 @@
+[tool.mutmut]
+source_paths = ["app/"]
+do_not_mutate = ["app/llm_client.py"]
+pytest_add_cli_args_test_selection = ["tests/"]
+pytest_add_cli_args = ["--ignore=tests/api/test_ai_generated_v1.py"]
