@@ -1,0 +1,9 @@
+    app.chatbot.x_load_faq__mutmut_2: survived
+    app.chatbot.x_load_faq__mutmut_4: survived
+    app.chatbot.x_load_faq__mutmut_6: survived
+    app.chatbot.xǁFAQChatbotǁvalidate_question__mutmut_3: survived
+    app.chatbot.xǁFAQChatbotǁvalidate_question__mutmut_4: survived
+    app.chatbot.xǁFAQChatbotǁvalidate_question__mutmut_5: survived
+    app.chatbot.xǁFAQChatbotǁvalidate_question__mutmut_9: survived
+    app.chatbot.xǁFAQChatbotǁvalidate_question__mutmut_10: survived
+    app.chatbot.xǁFAQChatbotǁvalidate_question__mutmut_11: survived

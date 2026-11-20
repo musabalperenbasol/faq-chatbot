@@ -1,0 +1,52 @@
+=== app.chatbot.x__is_token__mutmut_2
+# app.chatbot.x__is_token__mutmut_2: killed
+--- app/chatbot.py
++++ app/chatbot.py
+@@ -1,3 +1,3 @@
+ def _is_token(reply, token):
+     """True if the LLM reply is just the special token (ignoring case and punctuation)."""
+-    return reply.strip().strip(".!\"' ").upper() == token
++    return reply.strip().strip(None).upper() == token
+=== app.prompts.x_build_system_prompt__mutmut_1
+# app.prompts.x_build_system_prompt__mutmut_1: killed
+--- app/prompts.py
++++ app/prompts.py
+@@ -1,4 +1,4 @@
+-def build_system_prompt(faq_entries, version="v1"):
++def build_system_prompt(faq_entries, version="XXv1XX"):
+     """Build the full system prompt for the given prompt version."""
+     template = PROMPTS[version]
+     return template.format(
+=== app.prompts.x_build_system_prompt__mutmut_2
+# app.prompts.x_build_system_prompt__mutmut_2: killed
+--- app/prompts.py
++++ app/prompts.py
+@@ -1,4 +1,4 @@
+-def build_system_prompt(faq_entries, version="v1"):
++def build_system_prompt(faq_entries, version="V1"):
+     """Build the full system prompt for the given prompt version."""
+     template = PROMPTS[version]
+     return template.format(
+=== app.prompts.x_build_system_prompt__mutmut_5
+# app.prompts.x_build_system_prompt__mutmut_5: killed
+--- app/prompts.py
++++ app/prompts.py
+@@ -3,6 +3,6 @@
+     template = PROMPTS[version]
+     return template.format(
+         faq=format_faq(faq_entries),
+-        out_of_scope=OUT_OF_SCOPE_TOKEN,
++        out_of_scope=None,
+         unclear=UNCLEAR_TOKEN,
+     )
+=== app.prompts.x_build_system_prompt__mutmut_6
+# app.prompts.x_build_system_prompt__mutmut_6: killed
+--- app/prompts.py
++++ app/prompts.py
+@@ -4,5 +4,5 @@
+     return template.format(
+         faq=format_faq(faq_entries),
+         out_of_scope=OUT_OF_SCOPE_TOKEN,
+-        unclear=UNCLEAR_TOKEN,
++        unclear=None,
+     )
